@@ -1,3 +1,3 @@
 class Question < ActiveRecord::Base
-  belongs_to :surveys
+  belongs_to :survey
 end

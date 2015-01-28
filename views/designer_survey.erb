@@ -1,0 +1,21 @@
+<h2>Create or Edit Surveys</h2>
+
+<% if @surveys.any? %>
+  <% @surveys.each do |survey| %>
+    <ul>
+      <li><%= survey.name %> <a href="/designer/survey/<%= survey.id %>/edit">[Update]</a></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>You need to create some surveys!</p>
+<% end %>
+
+<form action="/designer/survey" method="post">
+  <label for="survey_title">Enter a title for your new survey here:</label>
+  <input type="text" name="survey_title" id="survey_title">
+
+  <button type="submit">Create!</button>
+</form>
+
+
+<a href="/">Click here to return to the home page</a>

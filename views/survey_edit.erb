@@ -1,0 +1,14 @@
+<h2>Edit or delete <%= @survey.name %></h2>
+
+<form action="/designer/survey/<%= @survey.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="new_title">Edit survey title:</label>
+  <input type="text" name="new_title" id="new_title">
+
+  <button type="submit" class="btn btn-md btn-info">Update Survey Title</button>
+</form>
+<br>
+<form action="/designer/survey/<%= @survey.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="btn btn-lg btn-danger">Delete Entire Survey</button>
+</form>

@@ -12,3 +12,27 @@
   <input type="hidden" name="_method" value="delete">
   <button type="submit" class="btn btn-lg btn-danger">Delete Entire Survey</button>
 </form>
+<br>
+<form action="/designer/survey/<%= @survey.id %>" method="post">
+  <label for="question">Enter your Question here:</label>
+  <input type="text" name="question" id="question">
+
+  <button type="submit" class="btn btn-md btn-warning">Submit Question</button>
+</form>
+
+
+<h2>Here are the questions for <%= @survey.name %></h2>
+<% if @questions.any? %>
+  <% @questions.each do |question| %>
+    <ul>
+      <li><%= question.description %><a href="/question/<%= question.id %>/edit">[Edit]</a><form action="/designer/question/<%= question.id %>" method="post">
+
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" value="<%= @survey.id %>">
+        <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+      </form></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>You have no questions in this survey yet</p>
+<% end %>
